@@ -1,4 +1,4 @@
-import React from 'core-js/library/fn/reflect/es7/metadata'
+import React from 'react'
 import { Link } from 'react-router-dom'
 
 import './header.styles.scss'
