@@ -23,11 +23,10 @@ class SignIn extends React.Component{
     }
 
     handleChange = e => {
+        const {name, value} = e.taget
         e.preventDefault()
-
         this.setState({
-            const {name, value} = e.taget
-            [email]: [value]
+            [name]:[value]
         })
     }
 
@@ -38,7 +37,12 @@ class SignIn extends React.Component{
                 <span>Sign in with your email and password</span>
 
                 <form onSubmit={this.handleSubmit}>
-                    <input type="email" name="email" value={this.state.email} required />
+                    <input
+                    type="email"
+                    name="email"
+                    value={this.state.email}
+                    onChange={this.handleChange}
+                    required />
                     <label>Email</label>
                     <input
                     type="password"
