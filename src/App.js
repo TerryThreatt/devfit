@@ -12,8 +12,15 @@ class App extends React.Component {
     super()
 
     this.state = {
-      currentUser: null 
+      currentUser: null
     }
+  }
+
+  componnentDidMount() {
+    auth.onAuthStateChanged(user => {
+      this.setState({ currentUser: user })
+      console.log(user)
+    })
   }
 
   render() {
