@@ -4,7 +4,7 @@ import './App.css';
 import Homepage from './pages/homepage/Homepage.component'
 import ShopPage from './pages/shop/Shop.component'
 import Header from './components/header/header.component'
-import SignUpAndSignOut from './pages/sign-in-and-sign-out/sign-in-and-sign-out.component'
+import SignInAndSignUpPage from './pages/sign-in-and-sign-out/sign-in-and-sign-out.component'
 import { auth } from './firebase/firebase.utils'
 
 class App extends React.Component {
@@ -19,8 +19,9 @@ class App extends React.Component {
   unsubscribeFromAuth = null
 
   componnentDidMount() {
-    auth.onAuthStateChanged(user => {
+    this.unsubscribeFromAuth = auth.onAuthStateChanged(user => {
       this.setState({ currentUser: user })
+
       console.log(user)
     })
   }
@@ -36,7 +37,7 @@ class App extends React.Component {
         <Switch>
           <Route exact path='/' component={Homepage} />
           <Route path="/shop"  component={ShopPage} />
-          <Route path="/signin"  component={SignUpAndSignOut} />
+          <Route path="/signin"  component={SignInAndSignUpPage} />
         </Switch>
       </div>
     )

@@ -27,7 +27,7 @@ class SignIn extends React.Component{
 
     handleChange = e => {
         const { name, value} = e.target
-        e.preventDefault()
+
         this.setState({
             [name]: [value]
         })
@@ -56,8 +56,10 @@ class SignIn extends React.Component{
                     handleChange={this.handleChange}
                     required/>
                     <br/>
-                    <CustomButton type="submit">Sign In</CustomButton>
-                    <CustomButton onClick={signInWithGoogle}>Sign In With Google</CustomButton>
+                    <div className="buttons">
+                        <CustomButton type="submit">Sign In</CustomButton>
+                        <CustomButton onClick={signInWithGoogle}>Sign In With Google</CustomButton>
+                    </div>
                 </form>
             </div>
         )
